@@ -719,11 +719,11 @@ class InstaBot:
                 # ------------------- Like -------------------
                 self.new_auto_mod_like()
                 # ------------------- Follow -------------------
-                self.new_auto_mod_follow()
-                # ------------------- Unfollow -------------------
-                self.new_auto_mod_unfollow()
-                # ------------------- Comment -------------------
-                self.new_auto_mod_comments()
+                #self.new_auto_mod_follow()
+                ## ------------------- Unfollow -------------------
+                #self.new_auto_mod_unfollow()
+                ## ------------------- Comment -------------------
+                #self.new_auto_mod_comments()
                 # Bot iteration in 1 sec
                 time.sleep(3)
                 # print("Tic!")
