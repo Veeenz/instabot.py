@@ -5,6 +5,7 @@ from __future__ import print_function
 from .unfollow_protocol import unfollow_protocol
 from .userinfo import UserInfo
 import atexit
+import re
 import datetime
 import itertools
 import json
@@ -282,7 +283,8 @@ class InstaBot:
         })
 
         r = self.s.get(self.url)
-        self.s.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
+        csrf_token = re.search('(?<=\"csrf_token\":\")\w+', r.text).group(0)
+        self.s.headers.update({'X-CSRFToken': csrf_token})
         time.sleep(5 * random.random())
         login = self.s.post(
             self.url_login, data=self.login_post, allow_redirects=True)
